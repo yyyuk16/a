@@ -1,0 +1,39 @@
+/* 全体のスタイル（モバイル向け） */
+.container {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh; /* 画面いっぱいに広げる */
+}
+
+.app-header h1 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+/* ナビゲーションバーのスタイル（モバイル向け） */
+.nav-bar {
+    flex-direction: column; /* 要素を縦に並べる */
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.nav-item {
+    padding: 15px; /* タップしやすいようにパディングを増やす */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* メインコンテンツのスタイル（モバイル向け） */
+.main-content {
+    margin: 10px;
+    padding: 15px;
+    box-shadow: none;
+}
+
+.home-item img {
+    height: 20px;
+}

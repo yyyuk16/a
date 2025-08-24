@@ -141,6 +141,7 @@ body::after {
   position: relative;
   padding: 8px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .card-image {
@@ -150,6 +151,7 @@ body::after {
   max-height: 280px;
   aspect-ratio: 2/3;
   object-fit: contain;
+  object-position: center;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(255,255,255,0.18);
   display: block;
@@ -427,6 +429,7 @@ body::after {
     padding: 4vw;
     position: relative;
     box-sizing: border-box;
+    text-align: center;
   }
   .card-image-bg {
     width: calc(100% - 8vw);
@@ -453,6 +456,7 @@ body::after {
     min-height: 60px;
     aspect-ratio: 2/3;
     object-fit: contain;
+    object-position: center;
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 8px rgba(255,255,255,0.15);
@@ -547,6 +551,7 @@ body::after {
     padding: 3vw;
     position: relative;
     box-sizing: border-box;
+    text-align: center;
   }
   .card-image-bg {
     width: calc(100% - 6vw);
@@ -573,6 +578,7 @@ body::after {
     min-height: 40px;
     aspect-ratio: 2/3;
     object-fit: contain;
+    object-position: center;
     border-radius: 8px;
     margin: 0 auto;
     box-shadow: 0 0 6px rgba(255,255,255,0.12);

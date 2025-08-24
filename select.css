@@ -1,52 +1,52 @@
 /* スマホ向けレイアウト調整・画像調整 */
 html, body {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-size: 16px;
-      }
-    body {
-        background: #080C16;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        display: flex;
-        justify-content: center; /* 垂直方向の中央揃え */
-        align-items: center; /* 水平方向の中央揃え */
-        position: relative;
-    }
-    
-    /* 新しいラッパー要素 */
-    .wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    /* 星の背景エフェクト */
-    .starry-bg {
-        pointer-events: none;
-        position: fixed; /* 親要素の`wrapper`ではなくビューポートを基準にする */
-        top: 0; 
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 0;
-        overflow: hidden;
-    }
-    
-    /* ... (以降のCSSコードは変更なし) ... */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+body {
+  background: #080C16;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 新しいラッパー要素 */
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 星の背景エフェクト */
+.starry-bg {
+  pointer-events: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ... (以降のCSSコードは変更なし) ... */
 .star {
   position: absolute;
   border-radius: 50%;
@@ -68,18 +68,18 @@ html, body {
   animation: sparkle 3s infinite;
 }
 
-/* カードコンテナ */
+/* カードコンテナ：横に2個ずつ並べる */
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
-    align-items: center; /* この行を flex-start から center に修正 */
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 24px 0;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
 /* カードの基本スタイル */
 .card {
   box-sizing: border-box;
@@ -92,9 +92,9 @@ html, body {
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 220px;
-  max-width: 90vw;
-  min-width: 50px;
+  width: 90%;
+  max-width: 350px;
+  min-width: 120px;
   height: auto;
   position: relative;
   z-index: 2;
@@ -170,7 +170,7 @@ html, body {
 
 /* 本のコンテナ（スマホサイズ対応） */
 .book-container {
-  width: 60vw;
+  width: 90%;
   max-width: 220px;
   height: 32vw;
   max-height: 330px;

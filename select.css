@@ -1,398 +1,500 @@
 /* スマホ向けレイアウト調整 */
 html, body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
-    background: #080C16;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
+  background: #080C16;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
 }
 
 /* 星の背景エフェクト */
 body::before,
 body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 0;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
 }
 body::before {
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0 2px, transparent 2px),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-        radial-gradient(circle at 40% 60%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
-        radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-        radial-gradient(circle at 10% 80%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
-        radial-gradient(circle at 90% 40%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-        radial-gradient(circle at 60% 10%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
-        radial-gradient(circle at 30% 90%, rgba(255,255,255,0.07) 0 1px, transparent 1px);
-    background-size: 120px 120px, 80px 80px, 60px 60px, 100px 100px, 40px 40px, 90px 90px, 70px 70px, 50px 50px;
-    animation: twinkle 4s ease-in-out infinite;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 60%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 10% 80%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 90% 40%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 60% 10%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
+    radial-gradient(circle at 30% 90%, rgba(255,255,255,0.07) 0 1px, transparent 1px);
+  background-size: 120px 120px, 80px 80px, 60px 60px, 100px 100px, 40px 40px, 90px 90px, 70px 70px, 50px 50px;
+  animation: twinkle 4s ease-in-out infinite;
 }
 body::after {
-    background: 
-        radial-gradient(circle at 15% 45%, rgba(255,255,255,0.2) 0 1px, transparent 1px),
-        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.15) 0 1px, transparent 1px),
-        radial-gradient(circle at 55% 85%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-        radial-gradient(circle at 25% 75%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-        radial-gradient(circle at 75% 55%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
-        radial-gradient(circle at 5% 25%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
-        radial-gradient(circle at 95% 65%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-        radial-gradient(circle at 35% 5%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-        radial-gradient(circle at 65% 35%, rgba(255,255,255,0.09) 0 1px, transparent 1px),
-        radial-gradient(circle at 45% 95%, rgba(255,255,255,0.11) 0 1px, transparent 1px);
-    background-size: 70px 70px, 50px 50px, 30px 30px, 45px 45px, 65px 65px, 25px 25px, 55px 55px, 35px 35px, 40px 40px, 60px 60px;
-    animation: twinkle-delayed 6s ease-in-out infinite;
+  background: 
+    radial-gradient(circle at 15% 45%, rgba(255,255,255,0.2) 0 1px, transparent 1px),
+    radial-gradient(circle at 85% 15%, rgba(255,255,255,0.15) 0 1px, transparent 1px),
+    radial-gradient(circle at 55% 85%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 25% 75%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 75% 55%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
+    radial-gradient(circle at 5% 25%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 95% 65%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 35% 5%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 65% 35%, rgba(255,255,255,0.09) 0 1px, transparent 1px),
+    radial-gradient(circle at 45% 95%, rgba(255,255,255,0.11) 0 1px, transparent 1px);
+  background-size: 70px 70px, 50px 50px, 30px 30px, 45px 45px, 65px 65px, 25px 25px, 55px 55px, 35px 35px, 40px 40px, 60px 60px;
+  animation: twinkle-delayed 6s ease-in-out infinite;
 }
 
 /* 星の背景エフェクト（追加の星） */
 .starry-bg {
-    pointer-events: none;
-    position: fixed;
-    top: 0; 
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
 }
 .star {
-    position: absolute;
-    border-radius: 50%;
-    background: white;
-    opacity: 0.7;
-    pointer-events: none;
-    animation: twinkle 2.5s infinite;
-    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: twinkle 2.5s infinite;
+  box-shadow: 0 0 4px rgba(255,255,255,0.8);
 }
 .star::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
-    animation: sparkle 3s infinite;
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+  animation: sparkle 3s infinite;
 }
 
 /* カードコンテナ */
 .cards-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4vw;
-    z-index: 2;
-    padding-top: 5vw;
-    box-sizing: border-box;
-    overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0;
 }
 
 /* カードの基本スタイル */
 .card {
-    position: relative;
-    width: 80vw;
-    max-width: 320px;
-    min-width: 140px;
-    height: 28vw;
-    max-height: 180px;
-    min-height: 110px;
-    margin: 2vw;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: white;
-    text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    animation: card-float 4s ease-in-out infinite;
-    background: rgba(30,30,60,0.3);
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 2px 1px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 220px;
+  max-width: 90vw;
+  min-width: 50px;
+  height: auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* 各カードの位置と色（スマホでは縦並び） */
-.card.fantasy {
-    background: linear-gradient(135deg, rgba(0,255,0,0.3), rgba(0,200,0,0.1));
-    box-shadow: 0 0 30px rgba(0,255,0,0.2);
-}
-.card.science {
-    background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,200,255,0.1));
-    box-shadow: 0 0 30px rgba(0,255,255,0.2);
-}
-.card.history {
-    background: linear-gradient(135deg, rgba(255,165,0,0.3), rgba(255,140,0,0.1));
-    box-shadow: 0 0 30px rgba(255,165,0,0.2);
-}
-.card.art {
-    background: linear-gradient(135deg, rgba(138,43,226,0.3), rgba(75,0,130,0.1));
-    box-shadow: 0 0 30px rgba(138,43,226,0.2);
+/* カード内画像用ラッパー */
+.card-image-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
 }
 
-/* カードのアイコン */
-.card-icon {
-    width: 2.5em;
-    height: 2.5em;
-    margin-bottom: 0.5em;
-    opacity: 0.9;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
-    font-size: 2.2rem;
+.card-image {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+  max-height: 320px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.18);
+  display: block;
+  background: transparent;
+  pointer-events: none;
+  animation: image-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+  transform: translateY(0);
+  margin: 0 auto;
 }
+
 
 /* カードのホバー効果 */
 .card:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 0 40px rgba(255,255,255,0.4);
-    z-index: 10;
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 0 40px rgba(255,255,255,0.4);
+  z-index: 10;
+}
+
+.card:hover .card-image {
+  animation: image-float-hover 2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
 }
 
 /* カードのアクティブ効果 */
 .card:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
 /* 本のコンテナ（スマホサイズ対応） */
 .book-container {
-    width: 90vw;
-    max-width: 320px;
-    height: 45vw;
-    max-height: 220px;
-    min-width: 160px;
-    min-height: 120px;
-    position: relative;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+  width: 60vw;
+  max-width: 220px;
+  height: 32vw;
+  max-height: 330px;
+  min-width: 80px;
+  min-height: 120px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
 }
 
 .book-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    box-shadow: none;
-    filter: brightness(1.1) contrast(1.1);
-    position: relative;
-    z-index: 2;
+  width: 90%;
+  height: auto;
+  max-width: 200px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.12);
+  filter: brightness(1.1) contrast(1.1);
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
 }
 
 /* 基本設定 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* カードの浮遊アニメーション */
 @keyframes card-float {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-6px) rotate(1deg);
-    }
-    50% {
-        transform: translateY(-12px) rotate(0deg);
-    }
-    75% {
-        transform: translateY(-6px) rotate(-1deg);
-    }
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
 }
 
 /* 本の輝きアニメーション */
 @keyframes book-glow {
-    0%, 100% {
-        filter: brightness(1.1) contrast(1.1);
-        transform: scale(1);
-    }
-    50% {
-        filter: brightness(1.3) contrast(1.2);
-        transform: scale(1.02);
-    }
+  0%, 100% {
+    filter: brightness(1.1) contrast(1.1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.3) contrast(1.2);
+    transform: scale(1.02);
+  }
 }
 
 /* 星のきらめきアニメーション */
 @keyframes twinkle {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-    25% {
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
-    50% {
-        opacity: 1.0;
-        transform: scale(1.2);
-    }
-    75% {
-        opacity: 0.6;
-        transform: scale(1.05);
-    }
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 1.0;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
 }
 
 /* 遅延した星のきらめきアニメーション */
 @keyframes twinkle-delayed {
-    0%, 100% {
-        opacity: 0.2;
-        transform: scale(1);
-    }
-    30% {
-        opacity: 0.7;
-        transform: scale(1.15);
-    }
-    60% {
-        opacity: 0.9;
-        transform: scale(1.25);
-    }
-    80% {
-        opacity: 0.5;
-        transform: scale(1.1);
-    }
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(1.25);
+  }
+  80% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
 }
 
 /* キラキラアニメーション */
 @keyframes sparkle {
-    0%, 100% {
-        opacity: 0.1;
-        transform: scale(0.8) rotate(0deg);
-    }
-    20% {
-        opacity: 0.6;
-        transform: scale(1.3) rotate(72deg);
-    }
-    40% {
-        opacity: 1.0;
-        transform: scale(1.5) rotate(144deg);
-    }
-    60% {
-        opacity: 0.8;
-        transform: scale(1.2) rotate(216deg);
-    }
-    80% {
-        opacity: 0.4;
-        transform: scale(1.0) rotate(288deg);
-    }
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.8) rotate(0deg);
+  }
+  20% {
+    opacity: 0.6;
+    transform: scale(1.3) rotate(72deg);
+  }
+  40% {
+    opacity: 1.0;
+    transform: scale(1.5) rotate(144deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(216deg);
+  }
+  80% {
+    opacity: 0.4;
+    transform: scale(1.0) rotate(288deg);
+  }
 }
 
-/* レスポンシブデザイン */
+/* 画像の浮遊アニメーション */
+@keyframes image-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  }
+  25% {
+    transform: translateY(-3px) rotate(0.5deg);
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  }
+  50% {
+    transform: translateY(-6px) rotate(0deg);
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+  }
+  75% {
+    transform: translateY(-3px) rotate(-0.5deg);
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  }
+}
+
+/* ホバー時の画像浮遊アニメーション */
+@keyframes image-float-hover {
+  0%, 100% {
+    transform: translateY(-2px) rotate(0deg);
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+  }
+  25% {
+    transform: translateY(-6px) rotate(1deg);
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.7));
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.8));
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1deg);
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.7));
+  }
+}
+
+/* レスポンシブデザイン：2列レイアウト（スマホ） */
 @media (max-width: 600px) {
-    html, body {
-        font-size: 15px;
-        height: 100vh;
-        overflow: hidden;
-    }
-    .cards-container {
-        flex-direction: column;
-        gap: 5vw;
-        padding-top: 6vw;
-        height: 100vh;
-        overflow: hidden;
-    }
-    .card {
-        width: 90vw;
-        max-width: 350px;
-        min-width: 120px;
-        height: 32vw;
-        max-height: 160px;
-        min-height: 90px;
-        font-size: 1rem;
-    }
-    .card-icon {
-        font-size: 2rem;
-        width: 2em;
-        height: 2em;
-    }
-    .book-container {
-        width: 95vw;
-        max-width: 350px;
-        height: 50vw;
-        max-height: 180px;
-        min-width: 120px;
-        min-height: 90px;
-    }
+  html, body {
+    font-size: 13px;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw 2vw;
+    padding-top: 3vw;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+    max-width: 100vw;
+    justify-items: center;
+    align-items: flex-start;
+  }
+  .card {
+    width: 90vw;
+    max-width: 98vw;
+    min-width: 40vw;
+    height: auto;
+    max-height: 340px;
+    min-height: 60px;
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+  .card-image-wrapper {
+    height: auto;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image {
+    width: 90%;
+    max-width: 180px;
+    max-height: 260px;
+    aspect-ratio: 2/3;
+  }
+  .card-icon {
+    font-size: 1rem;
+    width: 1.2em;
+    height: 1.2em;
+  }
+  .card-label {
+    font-size: 1em;
+  }
+  .book-container {
+    width: 90vw;
+    max-width: 98vw;
+    height: auto;
+    max-height: 340px;
+    min-width: 40vw;
+    min-height: 120px;
+    margin: 0 auto;
+  }
+  .book-image {
+    width: 95%;
+    max-width: 180px;
+    max-height: 260px;
+    aspect-ratio: 2/3;
+  }
 }
 
 @media (max-width: 400px) {
-    html, body {
-        font-size: 14px;
-        height: 100vh;
-        overflow: hidden;
-    }
-    .cards-container {
-        height: 100vh;
-        overflow: hidden;
-    }
-    .card {
-        width: 96vw;
-        min-width: 90px;
-        height: 36vw;
-        min-height: 70px;
-        font-size: 0.95rem;
-    }
-    .card-icon {
-        font-size: 1.5rem;
-        width: 1.5em;
-        height: 1.5em;
-    }
-    .book-container {
-        width: 98vw;
-        max-width: 99vw;
-        height: 54vw;
-        min-width: 80px;
-        min-height: 60px;
-    }
+  html, body {
+    font-size: 12px;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw 1vw;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+    max-width: 100vw;
+    justify-items: center;
+    align-items: flex-start;
+  }
+  .card {
+    width: 98vw;
+    min-width: 45vw;
+    height: auto;
+    max-height: 220px;
+    min-height: 30px;
+    font-size: 0.8rem;
+    margin: 0 auto;
+  }
+  .card-image-wrapper {
+    height: auto;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image {
+    width: 98%;
+    max-width: 120px;
+    max-height: 180px;
+    aspect-ratio: 2/3;
+  }
+  .card-icon {
+    font-size: 0.8rem;
+    width: 1em;
+    height: 1em;
+  }
+  .card-label {
+    font-size: 0.9em;
+  }
+  .book-container {
+    width: 98vw;
+    max-width: 99vw;
+    height: auto;
+    max-height: 220px;
+    min-width: 45vw;
+    min-height: 80px;
+    margin: 0 auto;
+  }
+  .book-image {
+    width: 98%;
+    max-width: 120px;
+    max-height: 180px;
+    aspect-ratio: 2/3;
+  }
 }
 
 /* アクセシビリティ向上 */
 @media (prefers-reduced-motion: reduce) {
-    .card,
-    .book-image,
-    body::before,
-    body::after,
-    .star {
-        animation: none !important;
-    }
-    .card:hover {
-        transform: scale(1.02);
-    }
+  .card,
+  .book-image,
+  .card-image,
+  body::before,
+  body::after,
+  .star {
+    animation: none !important;
+  }
+  .card:hover {
+    transform: scale(1.02);
+  }
+  .card:hover .card-image {
+    animation: none !important;
+  }
 }

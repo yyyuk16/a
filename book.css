@@ -1,0 +1,70 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #222;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+.book-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    max-width: 400px;
+    height: 60vw;
+    max-height: 600px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.book-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    display: block;
+}
+.light-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    border-radius: 16px;
+    background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 80%, transparent 100%);
+    z-index: 2;
+}
+.tap-effect {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 120px; height: 120px;
+    background: rgba(0, 200, 255, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.tap-effect.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+@media (max-width: 400px) {
+    .book-container {
+        width: 96vw;
+        height: 70vw;
+        max-width: 98vw;
+        max-height: 80vw;
+    }
+    .tap-effect {
+        width: 80px; height: 80px;
+    }
+}

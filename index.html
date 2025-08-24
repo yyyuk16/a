@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>水槽アプリ</title>
+
+    
+         <!-- スマホ版用スタイル -->
+   
+</head>
+<body>
+         <!-- 本の画像 -->
+     <div class="book-container" id="book">
+         <img src="background.jpg" alt="神秘的な本" class="book-image">
+         
+         <!-- 光のエフェクト -->
+         <div class="light-overlay"></div>
+         
+         <!-- タップ時のエフェクト -->
+         <div class="tap-effect" id="tap-effect"></div>
+     </div>
+
+         <script>
+         // シンプルなタップイベント
+         let isTransitioning = false;
+         
+         // タッチ/クリックイベント
+         document.getElementById('book').addEventListener('click', handleBookClick);
+         document.getElementById('book').addEventListener('touchend', function(e) {
+             e.preventDefault();
+             if (!isTransitioning) {
+                 handleBookClick();
+             }
+         });
+         
+         function handleBookClick() {
+             if (isTransitioning) return;
+             isTransitioning = true;
+             
+             // タップエフェクトを表示
+             const tapEffect = document.getElementById('tap-effect');
+             tapEffect.classList.add('active');
+             
+             // エフェクト終了後に削除
+             setTimeout(() => {
+                 tapEffect.classList.remove('active');
+             }, 600);
+             
+             // 3秒後に画面遷移
+             setTimeout(() => {
+                 window.location.href = 'map.html';
+             }, 3000);
+         }
+     </script>
+</body>
+</html>

@@ -1,15 +1,17 @@
-/* カード選択画面用CSS */
-
-/* 基本設定 */
-* {
+/* スマホ向けレイアウト調整 */
+html, body {
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 body {
     background: #080C16;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -17,19 +19,25 @@ body {
     -webkit-tap-highlight-color: transparent;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
 }
 
-/* 背景の星のエフェクト - 第1層 */
-body::before {
+/* 星の背景エフェクト */
+body::before,
+body::after {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+body::before {
     background: 
         radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0 2px, transparent 2px),
         radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
@@ -41,18 +49,8 @@ body::before {
         radial-gradient(circle at 30% 90%, rgba(255,255,255,0.07) 0 1px, transparent 1px);
     background-size: 120px 120px, 80px 80px, 60px 60px, 100px 100px, 40px 40px, 90px 90px, 70px 70px, 50px 50px;
     animation: twinkle 4s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
 }
-
-/* 背景の星のエフェクト - 第2層 */
 body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: 
         radial-gradient(circle at 15% 45%, rgba(255,255,255,0.2) 0 1px, transparent 1px),
         radial-gradient(circle at 85% 15%, rgba(255,255,255,0.15) 0 1px, transparent 1px),
@@ -66,11 +64,9 @@ body::after {
         radial-gradient(circle at 45% 95%, rgba(255,255,255,0.11) 0 1px, transparent 1px);
     background-size: 70px 70px, 50px 50px, 30px 30px, 45px 45px, 65px 65px, 25px 25px, 55px 55px, 35px 35px, 40px 40px, 60px 60px;
     animation: twinkle-delayed 6s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
 }
 
-/* 星の背景エフェクト */
+/* 星の背景エフェクト（追加の星） */
 .starry-bg {
     pointer-events: none;
     position: fixed;
@@ -81,7 +77,6 @@ body::after {
     z-index: 0;
     overflow: hidden;
 }
-
 .star {
     position: absolute;
     border-radius: 50%;
@@ -91,7 +86,6 @@ body::after {
     animation: twinkle 2.5s infinite;
     box-shadow: 0 0 4px rgba(255,255,255,0.8);
 }
-
 .star::before {
     content: '';
     position: absolute;
@@ -104,12 +98,99 @@ body::after {
     animation: sparkle 3s infinite;
 }
 
-/* 本のコンテナ（index.htmlと同じサイズ） */
+/* カードコンテナ */
+.cards-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4vw;
+    z-index: 2;
+    padding-top: 5vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* カードの基本スタイル */
+.card {
+    position: relative;
+    width: 80vw;
+    max-width: 320px;
+    min-width: 140px;
+    height: 28vw;
+    max-height: 180px;
+    min-height: 110px;
+    margin: 2vw;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    animation: card-float 4s ease-in-out infinite;
+    background: rgba(30,30,60,0.3);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* 各カードの位置と色（スマホでは縦並び） */
+.card.fantasy {
+    background: linear-gradient(135deg, rgba(0,255,0,0.3), rgba(0,200,0,0.1));
+    box-shadow: 0 0 30px rgba(0,255,0,0.2);
+}
+.card.science {
+    background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,200,255,0.1));
+    box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+.card.history {
+    background: linear-gradient(135deg, rgba(255,165,0,0.3), rgba(255,140,0,0.1));
+    box-shadow: 0 0 30px rgba(255,165,0,0.2);
+}
+.card.art {
+    background: linear-gradient(135deg, rgba(138,43,226,0.3), rgba(75,0,130,0.1));
+    box-shadow: 0 0 30px rgba(138,43,226,0.2);
+}
+
+/* カードのアイコン */
+.card-icon {
+    width: 2.5em;
+    height: 2.5em;
+    margin-bottom: 0.5em;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+    font-size: 2.2rem;
+}
+
+/* カードのホバー効果 */
+.card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+    z-index: 10;
+}
+
+/* カードのアクティブ効果 */
+.card:active {
+    transform: scale(0.97);
+}
+
+/* 本のコンテナ（スマホサイズ対応） */
 .book-container {
-    width: 280px;
-    height: 350px;
-    max-width: 85vw;
-    max-height: 60vh;
+    width: 90vw;
+    max-width: 320px;
+    height: 45vw;
+    max-height: 220px;
+    min-width: 160px;
+    min-height: 120px;
     position: relative;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -134,91 +215,11 @@ body::after {
     z-index: 2;
 }
 
-/* カードコンテナ */
-.cards-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-/* カードの基本スタイル */
-.card {
-    position: absolute;
-    width: 140px;
-    height: 180px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    animation: card-float 4s ease-in-out infinite;
-}
-
-/* 各カードの位置と色 */
-.card.fantasy {
-    top: 25%;
-    left: 15%;
-    background: linear-gradient(135deg, rgba(0,255,0,0.3), rgba(0,200,0,0.1));
-    box-shadow: 0 0 30px rgba(0,255,0,0.4);
-    animation-delay: 0s;
-}
-
-.card.science {
-    top: 15%;
-    right: 20%;
-    background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,200,255,0.1));
-    box-shadow: 0 0 30px rgba(0,255,255,0.4);
-    animation-delay: 0.5s;
-}
-
-.card.history {
-    top: 45%;
-    left: 10%;
-    background: linear-gradient(135deg, rgba(255,165,0,0.3), rgba(255,140,0,0.1));
-    box-shadow: 0 0 30px rgba(255,165,0,0.4);
-    animation-delay: 1s;
-}
-
-.card.art {
-    top: 35%;
-    right: 15%;
-    background: linear-gradient(135deg, rgba(138,43,226,0.3), rgba(75,0,130,0.1));
-    box-shadow: 0 0 30px rgba(138,43,226,0.4);
-    animation-delay: 1.5s;
-}
-
-/* カードのアイコン */
-.card-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-    opacity: 0.9;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
-}
-
-/* カードのホバー効果 */
-.card:hover {
-    transform: scale(1.1) translateY(-10px);
-    box-shadow: 0 0 50px rgba(255,255,255,0.6);
-    z-index: 10;
-}
-
-/* カードのアクティブ効果 */
-.card:active {
-    transform: scale(0.95);
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* カードの浮遊アニメーション */
@@ -227,13 +228,13 @@ body::after {
         transform: translateY(0px) rotate(0deg);
     }
     25% {
-        transform: translateY(-8px) rotate(1deg);
+        transform: translateY(-6px) rotate(1deg);
     }
     50% {
-        transform: translateY(-15px) rotate(0deg);
+        transform: translateY(-12px) rotate(0deg);
     }
     75% {
-        transform: translateY(-8px) rotate(-1deg);
+        transform: translateY(-6px) rotate(-1deg);
     }
 }
 
@@ -314,54 +315,71 @@ body::after {
 }
 
 /* レスポンシブデザイン */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+    html, body {
+        font-size: 15px;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .cards-container {
+        flex-direction: column;
+        gap: 5vw;
+        padding-top: 6vw;
+        height: 100vh;
+        overflow: hidden;
+    }
     .card {
-        width: 120px;
-        height: 150px;
-        font-size: 14px;
+        width: 90vw;
+        max-width: 350px;
+        min-width: 120px;
+        height: 32vw;
+        max-height: 160px;
+        min-height: 90px;
+        font-size: 1rem;
     }
-    
     .card-icon {
-        width: 40px;
-        height: 40px;
+        font-size: 2rem;
+        width: 2em;
+        height: 2em;
     }
-    
     .book-container {
-        width: 250px;
-        height: 320px;
+        width: 95vw;
+        max-width: 350px;
+        height: 50vw;
+        max-height: 180px;
+        min-width: 120px;
+        min-height: 90px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
+    html, body {
+        font-size: 14px;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .cards-container {
+        height: 100vh;
+        overflow: hidden;
+    }
     .card {
-        width: 100px;
-        height: 130px;
-        font-size: 12px;
+        width: 96vw;
+        min-width: 90px;
+        height: 36vw;
+        min-height: 70px;
+        font-size: 0.95rem;
     }
-    
     .card-icon {
-        width: 35px;
-        height: 35px;
+        font-size: 1.5rem;
+        width: 1.5em;
+        height: 1.5em;
     }
-    
-    .card.fantasy {
-        top: 20%;
-        left: 10%;
-    }
-    
-    .card.science {
-        top: 10%;
-        right: 15%;
-    }
-    
-    .card.history {
-        top: 40%;
-        left: 5%;
-    }
-    
-    .card.art {
-        top: 30%;
-        right: 10%;
+    .book-container {
+        width: 98vw;
+        max-width: 99vw;
+        height: 54vw;
+        min-width: 80px;
+        min-height: 60px;
     }
 }
 
@@ -372,10 +390,9 @@ body::after {
     body::before,
     body::after,
     .star {
-        animation: none;
+        animation: none !important;
     }
-    
     .card:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 }

@@ -9,7 +9,7 @@
 
 body {
     background: #080C16;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -294,6 +294,10 @@ body::after {
 
 /* 小さい画面用の調整 */
 @media (max-width: 375px) {
+    html, body {
+        height: 100vh;
+        overflow: hidden;
+    }
     .book-container {
         width: 250px;
         height: 320px;
@@ -306,6 +310,10 @@ body::after {
 
 /* 横画面用の調整 */
 @media (orientation: landscape) and (max-height: 500px) {
+    html, body {
+        height: 100vh;
+        overflow: hidden;
+    }
     .book-container {
         width: 200px;
         height: 250px;

@@ -1,70 +1,53 @@
 /* スマホ向けレイアウト調整・画像調整 */
 html, body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  body {
-    background: #080C16;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    /* 以下の行を修正 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 垂直方向の中央揃え */
-    align-items: center; /* 水平方向の中央揃え */
-    position: relative;
-  }
-  
-  /* 星の背景エフェクト */
-  body::before,
-  body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-  }
-body::after {
-  background: 
-    radial-gradient(circle at 15% 45%, rgba(255,255,255,0.2) 0 1px, transparent 1px),
-    radial-gradient(circle at 85% 15%, rgba(255,255,255,0.15) 0 1px, transparent 1px),
-    radial-gradient(circle at 55% 85%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-    radial-gradient(circle at 25% 75%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-    radial-gradient(circle at 75% 55%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
-    radial-gradient(circle at 5% 25%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
-    radial-gradient(circle at 95% 65%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-    radial-gradient(circle at 35% 5%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-    radial-gradient(circle at 65% 35%, rgba(255,255,255,0.09) 0 1px, transparent 1px),
-    radial-gradient(circle at 45% 95%, rgba(255,255,255,0.11) 0 1px, transparent 1px);
-  background-size: 70px 70px, 50px 50px, 30px 30px, 45px 45px, 65px 65px, 25px 25px, 55px 55px, 35px 35px, 40px 40px, 60px 60px;
-  animation: twinkle-delayed 6s ease-in-out infinite;
-}
-
-/* 星の背景エフェクト（追加の星） */
-.starry-bg {
-  pointer-events: none;
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  overflow: hidden;
-}
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      
+    body {
+        background: #080C16;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        display: flex;
+        justify-content: center; /* 垂直方向の中央揃え */
+        align-items: center; /* 水平方向の中央揃え */
+        position: relative;
+    }
+    
+    /* 新しいラッパー要素 */
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* 星の背景エフェクト */
+    .starry-bg {
+        pointer-events: none;
+        position: fixed; /* 親要素の`wrapper`ではなくビューポートを基準にする */
+        top: 0; 
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        overflow: hidden;
+    }
+    
+    /* ... (以降のCSSコードは変更なし) ... */
 .star {
   position: absolute;
   border-radius: 50%;

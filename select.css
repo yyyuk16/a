@@ -138,17 +138,18 @@ body::after {
   align-items: center;
   justify-content: center;
   min-height: 120px;
-  /* 画像の背後の枠が画像と同じサイズになるように調整 */
   position: relative;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .card-image {
   width: 100%;
   height: auto;
-  max-width: 220px;
-  max-height: 320px;
+  max-width: 200px;
+  max-height: 280px;
   aspect-ratio: 2/3;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(255,255,255,0.18);
   display: block;
@@ -165,11 +166,11 @@ body::after {
 /* 画像背後の枠（新規追加） */
 .card-image-bg {
   position: absolute;
-  top: 0;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 220px;
+  width: calc(100% - 16px);
+  max-width: 200px;
   aspect-ratio: 2/3;
   height: auto;
   border-radius: 12px;
@@ -423,13 +424,14 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 4vw;
     position: relative;
+    box-sizing: border-box;
   }
   .card-image-bg {
-    width: 100vw;
-    max-width: 44vw;
-    min-width: 36vw;
+    width: calc(100% - 8vw);
+    max-width: 40vw;
+    min-width: 32vw;
     aspect-ratio: 2/3;
     height: auto;
     border-radius: 10px;
@@ -438,19 +440,19 @@ body::after {
     background: rgba(255,255,255,0.08);
     box-shadow: 0 0 10px 2px rgba(255,255,255,0.10);
     position: absolute;
-    top: 0;
+    top: 4vw;
     z-index: 1;
     pointer-events: none;
   }
   .card-image {
-    width: 100vw;
-    max-width: 44vw;
-    min-width: 36vw;
+    width: calc(100% - 8vw);
+    max-width: 40vw;
+    min-width: 32vw;
     height: auto;
-    max-height: 38vw;
+    max-height: 36vw;
     min-height: 60px;
     aspect-ratio: 2/3;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 8px rgba(255,255,255,0.15);
@@ -542,13 +544,14 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 3vw;
     position: relative;
+    box-sizing: border-box;
   }
   .card-image-bg {
-    width: 100vw;
-    max-width: 48vw;
-    min-width: 38vw;
+    width: calc(100% - 6vw);
+    max-width: 42vw;
+    min-width: 34vw;
     aspect-ratio: 2/3;
     height: auto;
     border-radius: 8px;
@@ -557,19 +560,19 @@ body::after {
     background: rgba(255,255,255,0.08);
     box-shadow: 0 0 8px 2px rgba(255,255,255,0.10);
     position: absolute;
-    top: 0;
+    top: 3vw;
     z-index: 1;
     pointer-events: none;
   }
   .card-image {
-    width: 100vw;
-    max-width: 48vw;
-    min-width: 38vw;
+    width: calc(100% - 6vw);
+    max-width: 42vw;
+    min-width: 34vw;
     height: auto;
-    max-height: 50vw;
+    max-height: 44vw;
     min-height: 40px;
     aspect-ratio: 2/3;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
     margin: 0 auto;
     box-shadow: 0 0 6px rgba(255,255,255,0.12);

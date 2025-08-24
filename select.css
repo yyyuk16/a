@@ -1,55 +1,43 @@
 /* スマホ向けレイアウト調整・画像調整 */
 html, body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-body {
-  background: #080C16;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-}
-
-/* 星の背景エフェクト */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-}
-body::before {
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0 2px, transparent 2px),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-    radial-gradient(circle at 40% 60%, rgba(255,255,255,0.12) 0 1px, transparent 1px),
-    radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
-    radial-gradient(circle at 10% 80%, rgba(255,255,255,0.06) 0 1px, transparent 1px),
-    radial-gradient(circle at 90% 40%, rgba(255,255,255,0.08) 0 1px, transparent 1px),
-    radial-gradient(circle at 60% 10%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
-    radial-gradient(circle at 30% 90%, rgba(255,255,255,0.07) 0 1px, transparent 1px);
-  background-size: 120px 120px, 80px 80px, 60px 60px, 100px 100px, 40px 40px, 90px 90px, 70px 70px, 50px 50px;
-  animation: twinkle 4s ease-in-out infinite;
-}
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  body {
+    background: #080C16;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* 以下の行を修正 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center; /* 水平方向の中央揃え */
+    position: relative;
+  }
+  
+  /* 星の背景エフェクト */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+  }
 body::after {
   background: 
     radial-gradient(circle at 15% 45%, rgba(255,255,255,0.2) 0 1px, transparent 1px),

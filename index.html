@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="book.css">
 </head>
 <body>
+    <!-- 星の背景エフェクト -->
+    <div class="starry-bg" id="starry-bg"></div>
+
     <!-- 本の画像 -->
     <div class="book-container" id="book">
         <img src="background.jpg" alt="神秘的な本" class="book-image">
@@ -21,6 +24,45 @@
     </div>
 
     <script>
+        // ランダムな星を生成する関数
+        function createRandomStars() {
+            const starryBg = document.getElementById('starry-bg');
+            const starCount = 50; // 星の数を増やす
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // ランダムな位置
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                
+                // ランダムなサイズ（0.8px〜3px）
+                const size = 0.8 + Math.random() * 2.2;
+                
+                // ランダムなアニメーション遅延
+                const delay = Math.random() * 3;
+                
+                // ランダムなアニメーション時間
+                const duration = 2 + Math.random() * 2;
+                
+                // スタイルを設定
+                star.style.cssText = `
+                    top: ${top}%;
+                    left: ${left}%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    animation-delay: ${delay}s;
+                    animation-duration: ${duration}s;
+                `;
+                
+                starryBg.appendChild(star);
+            }
+        }
+
+        // ページ読み込み時に星を生成
+        window.addEventListener('load', createRandomStars);
+
         // シンプルなタップイベント
         let isTransitioning = false;
 
@@ -46,10 +88,10 @@
                 tapEffect.classList.remove('active');
             }, 600);
 
-            // 3秒後に画面遷移
+            // 1秒後にselect.htmlへ画面遷移
             setTimeout(() => {
-                window.location.href = 'map.html';
-            }, 3000);
+                window.location.href = 'select.html';
+            }, 1000);
         }
     </script>
 </body>

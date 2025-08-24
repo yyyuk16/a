@@ -88,17 +88,16 @@ body::after {
 
 /* カードコンテナ */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 0;
-}
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center; /* この行を flex-start から center に修正 */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 0;
+  }
 /* カードの基本スタイル */
 .card {
   box-sizing: border-box;

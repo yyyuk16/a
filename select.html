@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>カテゴリー選択</title>
+    <link rel="stylesheet" href="select.css">
+</head>
+<body>
+    <!-- 星の背景エフェクト -->
+    <div class="starry-bg" id="starry-bg"></div>
+
+    <!-- カードコンテナ -->
+    <div class="cards-container">
+        <!-- Fantasy カード -->
+        <div class="card fantasy" id="fantasy-card">
+            <div class="card-icon">🐉</div>
+            <div>Fantasy</div>
+        </div>
+
+        <!-- Science カード -->
+        <div class="card science" id="science-card">
+            <div class="card-icon">🌌</div>
+            <div>Science</div>
+        </div>
+
+        <!-- History カード -->
+        <div class="card history" id="history-card">
+            <div class="card-icon">📜</div>
+            <div>History</div>
+        </div>
+
+        <!-- Art カード -->
+        <div class="card art" id="art-card">
+            <div class="card-icon">🧠</div>
+            <div>Art</div>
+        </div>
+    </div>
+
+ 
+
+    <script>
+        // ランダムな星を生成する関数
+        function createRandomStars() {
+            const starryBg = document.getElementById('starry-bg');
+            const starCount = 50;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // ランダムな位置
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                
+                // ランダムなサイズ（0.8px〜3px）
+                const size = 0.8 + Math.random() * 2.2;
+                
+                // ランダムなアニメーション遅延
+                const delay = Math.random() * 3;
+                
+                // ランダムなアニメーション時間
+                const duration = 2 + Math.random() * 2;
+                
+                // スタイルを設定
+                star.style.cssText = `
+                    top: ${top}%;
+                    left: ${left}%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    animation-delay: ${delay}s;
+                    animation-duration: ${duration}s;
+                `;
+                
+                starryBg.appendChild(star);
+            }
+        }
+
+        // ページ読み込み時に星を生成
+        window.addEventListener('load', createRandomStars);
+
+        // カードクリックイベント
+        document.getElementById('fantasy-card').addEventListener('click', function() {
+            selectCategory('fantasy');
+        });
+
+        document.getElementById('science-card').addEventListener('click', function() {
+            selectCategory('science');
+        });
+
+        document.getElementById('history-card').addEventListener('click', function() {
+            selectCategory('history');
+        });
+
+        document.getElementById('art-card').addEventListener('click', function() {
+            selectCategory('art');
+        });
+
+        // 本のクリックイベント（戻る）
+        document.getElementById('book').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        // カテゴリー選択関数
+        function selectCategory(category) {
+            // カードの選択エフェクト
+            const selectedCard = document.getElementById(category + '-card');
+            selectedCard.style.transform = 'scale(1.2)';
+            selectedCard.style.boxShadow = '0 0 60px rgba(255,255,255,0.8)';
+            
+            // 少し待ってから遷移
+            setTimeout(() => {
+                // ここで選択されたカテゴリーに応じたページに遷移
+                // 例: window.location.href = category + '.html';
+                console.log('選択されたカテゴリー:', category);
+                
+                // 仮の遷移先（実際のページに応じて変更）
+                window.location.href = 'map.html';
+            }, 1000);
+        }
+
+        // タッチイベント対応
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                this.click();
+            });
+        });
+
+        document.getElementById('book').addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.click();
+        });
+    </script>
+</body>
+</html>
